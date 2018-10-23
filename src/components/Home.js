@@ -25,7 +25,7 @@ class Home extends Component {
                         <img src={Pokeball} alt="A pokeball" />
                         <div className="card-content">
                             <Link to={'/' + post.id }>
-                            <span className="card-title red-text">{post.title}</span>
+                                <span className="card-title red-text">{post.title}</span>
                             </Link>
                             <p>{post.body}</p>
                         </div>
