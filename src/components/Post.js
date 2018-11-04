@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux';
-import { deletePost } from '../actions/postActions'
+import { deletePost, addPost } from '../actions/postActions'
 
 class Post extends Component {
     handleClick = () => {
@@ -8,7 +8,6 @@ class Post extends Component {
         this.props.history.push('/'); //redirects to the home page
     }
     render() {
-        console.log(this.props)
         const post = this.props.post ? (
             <div className="post">
                 <h4 className="center">{this.props.post.title}</h4>
@@ -41,8 +40,9 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        deletePost: (id) => { dispatch(deletePost(id)) }
+        deletePost: (id) => { dispatch(deletePost(id)) },
     }
 }
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(Post)
