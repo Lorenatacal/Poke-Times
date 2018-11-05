@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import Pokeball from '../pokeball.png'
 import { connect } from 'react-redux'
+import AddPost from './AddPost'
 
 class Home extends Component {
     render() {
@@ -28,6 +29,7 @@ class Home extends Component {
                 <div className="container home">
                     <h4 className="center">Home</h4>
                     {postList}
+                    <AddPost />
                 </div>
         )
     }
