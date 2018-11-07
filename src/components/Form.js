@@ -1,14 +1,16 @@
 import React, {Component} from 'react'
 
 class Form extends Component {
+    
     render() {
         return (
-            <div>
+            <div className="center post card">
                 <form>
                     <label>
                         <input type="text" name="Your post" />
                     </label>
-                    <input type="submit" value="Submit" />
+                    <textarea>Type your post here</textarea>
+                        <input type="submit" value="Submit" />
                 </form>
             </div>
         )

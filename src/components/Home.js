@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import Pokeball from '../pokeball.png'
 import { connect } from 'react-redux'
 import AddPost from './AddPost'
+import Form from './Form'
 
 class Home extends Component {
     render() {
@@ -30,6 +31,7 @@ class Home extends Component {
                     <h4 className="center">Home</h4>
                     {postList}
                     <AddPost />
+                    <Form />
                 </div>
         )
     }
