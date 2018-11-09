@@ -9,17 +9,19 @@ class AddPost extends React.Component {
         this.state = {
             showComponent: false,
         };
-        this._onButtonClick = this._onButtonClick.bind(this);
+        this.onClick = this.onClick.bind(this);
     }
-   _onButtonClick() {
+
+   onClick() {
        this.setState({
            showComponent: true,
        });
    }
+
     render() {
         return (
             <div className="center">
-                <button className="btn grey" onClick={this._onButtonClick}>
+                <button className="btn grey" onClick={this.onClick}>
                   Add Post
                 </button>
                 {this.state.showComponent ?
