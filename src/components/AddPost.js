@@ -24,10 +24,7 @@ class AddPost extends React.Component {
                 <button className="btn grey" onClick={this.onClick}>
                   Add Post
                 </button>
-                {this.state.showComponent ?
-                    <Form /> :
-                    null
-                }
+                { this.state.showComponent && <Form /> }
             </div>
         );
     }

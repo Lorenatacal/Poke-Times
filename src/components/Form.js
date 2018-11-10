@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 class Form extends Component {
     constructor(props) {
@@ -19,11 +20,9 @@ class Form extends Component {
         return (
             <div className="center post card">
                 <form>
-                    <label>
-                        <input type="text" name="Your post" />
-                    </label>
-                    <textarea type="text" onChange={this.handleChange} placeholder="Type here" />
-                        <input type="submit" value="Submit" />
+                    <input type="text" placeholder="Your title" />
+                    <textarea type="text" onChange={this.handleChange} placeholder="Insert the post body" />
+                    <input type="submit" value="Submit" />
                 </form>
             </div>
         )
