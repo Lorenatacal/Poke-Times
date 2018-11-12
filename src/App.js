@@ -19,7 +19,6 @@ class App extends Component {
                 <Route path='/about' component={About} />
                 <Route path='/contact' component={Contact} />
                 <Route path="/:post_id" component={Post} />
-                <Route path='/form' component={Form} />
               </Switch>
         </div>
       </BrowserRouter>
