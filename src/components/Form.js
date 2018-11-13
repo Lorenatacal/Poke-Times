@@ -40,11 +40,8 @@ class Form extends Component {
         return (
             <div className="center post card">
                 <form onSubmit={this.handleSubmit}>
-                    <label id="mainInput">
-                        Type your post bellow:
-                        <input value={this.state.value} onChange={this.handleChange} placeholder="Your title" />
-                        <textarea value={this.state.body} onChange={this.handleBody} placeholder="Insert the post body" />
-                    </label>
+                    <input value={this.state.value} onChange={this.handleChange} placeholder="Your title" />
+                    <textarea value={this.state.body} onChange={this.handleBody} placeholder="Insert the post body" />
                     <button onClick={this.handleSubmit} type="Submit">Submit </button>
                     {/* <input type="submit" value={this.state.myCustomPropertyThatRepresentsThisUserInput} check controlled react forms/input />  */}
                 </form>
