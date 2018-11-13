@@ -26,20 +26,28 @@ class Form extends Component {
     }
 
     handleSubmit(e) {
-        console.log(this.state.value + '\n' + this.state.body);
         e.preventDefault();
+        console.log(this.state.value + '\n' + this.state.body);
+        const value = this.state.value;
+        const body = this.state.body;
+        this.setState({
+            value: '',
+            body: '',
+        });
     }
     
     render() {
         return (
             <div className="center post card">
                 <form onSubmit={this.handleSubmit}>
-                    <input type="text" onChange={this.handleChange} placeholder="Your title" />
-                    <textarea type="text" onChange={this.handleBody} placeholder="Insert the post body" />
-                    <input type="submit" value="Submit" />
+                    <label id="mainInput">
+                        Type your post bellow:
+                        <input value={this.state.value} onChange={this.handleChange} placeholder="Your title" />
+                        <textarea value={this.state.body} onChange={this.handleBody} placeholder="Insert the post body" />
+                    </label>
+                    <button onClick={this.handleSubmit} type="Submit">Submit </button>
+                    {/* <input type="submit" value={this.state.myCustomPropertyThatRepresentsThisUserInput} check controlled react forms/input />  */}
                 </form>
-                <p> {this.state.value} </p>
-                <p> {this.state.body} </p>
             </div>
         )
     }
