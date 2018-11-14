@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { connect } from 'react-redux'
 
 class Form extends Component {
     constructor(props) {
@@ -50,4 +51,10 @@ class Form extends Component {
     }
 }
 
-export default Form
+const mapStateToProps = (state) => {
+    return {
+        posts: state.posts
+    }
+}
+
+export default connect(mapStateToProps)(Form)
