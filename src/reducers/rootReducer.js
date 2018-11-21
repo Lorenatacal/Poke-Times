@@ -10,17 +10,39 @@ const initState = {
 
 const rootReducer = (state = initState, action) => {
     //change this to switch => case 1 deletePost
-    if(action.type === DELETE_POST) {
-        let newPosts = state.posts.filter(post => {
-            return action.id !== post.id
-        });
-        return {
-            ...state,
-            // spread operator
-            posts: newPosts
+    switch(action.type) {
+        case 'DELETE_POST':
+            let newPosts = state.posts.filter(post => {
+                return action.id !== post.id
+            });
+            return {
+                ...state,
+                posts: newPosts
+            }
+        }
+    //     case 'ADD_POST':
+    //         return state.concat([action.data]);
+    //     default:
+    //         return state;
+    // }
+    // if(action.type === DELETE_POST) {
+    //     let newPosts = state.posts.filter(post => {
+    //         return action.id !== post.id
+    //     });
+    //     return {
+    //         ...state,
+    //         // spread operator
+    //         posts: newPosts
+    //     }
+    // }
+    const postReducer = ( state = initState, action) => {
+        switch(action.type) {
+            case 'ADD_POST':
+                return state.concat([action.data]);
+            default:
+                return state;
         }
     }
-    //case 2 (add postReducer)
     return state;
 }
 

@@ -30,9 +30,9 @@ class Form extends Component {
         e.preventDefault();
         const title = this.state.title;
         const body = this.state.body;
-        const id = Math.random(3, 100);
+        const id = Math.random();
         // Dispatch Action to add post
-        // this.props.addPost( title, body);
+        // this.props.addPost(id, title, body);
         this.setState({
             title: '',
             body: '',
@@ -64,4 +64,4 @@ const mapStateToProps = (state) => {
 //     }
 // }
 
-export default connect(null, null)(Form);
+export default connect(mapStateToProps, null)(Form);
