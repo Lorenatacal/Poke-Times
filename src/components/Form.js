@@ -6,7 +6,7 @@ class Form extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            value: '',
+            title: '',
             body: '',
         };
         this.handleChange = this.handleChange.bind(this);
@@ -16,7 +16,7 @@ class Form extends Component {
 
     handleChange(event) {
         this.setState({
-            value: event.target.value,
+            title: event.target.value,
         })
     }
 
@@ -28,11 +28,13 @@ class Form extends Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        console.log(this.state.value + '\n' + this.state.body);
-        const value = this.state.value;
+        const title = this.state.title;
         const body = this.state.body;
+        const id = Math.random(3, 100);
+        // Dispatch Action to add post
+        // this.props.addPost( title, body);
         this.setState({
-            value: '',
+            title: '',
             body: '',
         });
     }
@@ -41,10 +43,9 @@ class Form extends Component {
         return (
             <div className="center post card">
                 <form onSubmit={this.handleSubmit}>
-                    <input value={this.state.value} onChange={this.handleChange} placeholder="Your title" />
+                    <input value={this.state.title} onChange={this.handleChange} placeholder="Your title" />
                     <textarea value={this.state.body} onChange={this.handleBody} placeholder="Insert the post body" />
                     <button onClick={this.handleSubmit} type="Submit">Submit </button>
-                    {/* <input type="submit" value={this.state.myCustomPropertyThatRepresentsThisUserInput} check controlled react forms/input />  */}
                 </form>
             </div>
         )
@@ -55,6 +56,12 @@ const mapStateToProps = (state) => {
     return {
         posts: state.posts
     }
-}
+} 
 
-export default connect(mapStateToProps)(Form)
+// const mapDispatchToProps = (dispatch) => {
+//     return {
+//         addPost: (id, title, body) => { dispatch(addPost(id, title, body)) },
+//     }
+// }
+
+export default connect(null, null)(Form);

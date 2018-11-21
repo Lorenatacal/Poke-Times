@@ -6,7 +6,7 @@ import AddPost from './AddPost'
 
 class Home extends Component {
     render() {
-        const { posts } = this.props;
+        const { posts } = this.props; // object destructuring
         const postList = posts.length ? (
             posts.map(post => {
                 return(

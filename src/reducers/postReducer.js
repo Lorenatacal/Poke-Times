@@ -6,7 +6,7 @@ const initState = {
     ]
 }
 
-const postReducer = ( state = initialState, action) => {
+const postReducer = ( state = initState, action) => {
     switch(action.type) {
         case 'ADD_POST':
             return state.concat([action.data]);
