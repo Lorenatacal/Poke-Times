@@ -32,7 +32,7 @@ class Form extends Component {
         const body = this.state.body;
         const id = Math.random();
         // Dispatch Action to add post
-        // this.props.addPost(id, title, body);
+        this.props.addPost( title, body);
         this.setState({
             title: '',
             body: '',
@@ -58,10 +58,10 @@ const mapStateToProps = (state) => {
     }
 } 
 
-// const mapDispatchToProps = (dispatch) => {
-//     return {
-//         addPost: (id, title, body) => { dispatch(addPost(id, title, body)) },
-//     }
-// }
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addPost: (id, title, body) => { dispatch(addPost(id, title, body)) },
+    }
+}
 
-export default connect(mapStateToProps, null)(Form);
+export default connect(mapStateToProps, mapDispatchToProps)(Form);

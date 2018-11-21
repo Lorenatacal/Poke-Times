@@ -18,23 +18,14 @@ const rootReducer = (state = initState, action) => {
             return {
                 ...state,
                 posts: newPosts
-            }
-        }
-    //     case 'ADD_POST':
-    //         return state.concat([action.data]);
-    //     default:
-    //         return state;
-    // }
-    // if(action.type === DELETE_POST) {
-    //     let newPosts = state.posts.filter(post => {
-    //         return action.id !== post.id
-    //     });
-    //     return {
-    //         ...state,
-    //         // spread operator
-    //         posts: newPosts
-    //     }
-    // }
+            };
+            break;
+        case 'ADD_POST':
+            return state.concat([action.data]);
+            break;
+        default:
+            return state;
+    }
     const postReducer = ( state = initState, action) => {
         switch(action.type) {
             case 'ADD_POST':
