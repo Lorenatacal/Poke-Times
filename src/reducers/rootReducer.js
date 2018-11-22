@@ -1,4 +1,4 @@
-import { DELETE_POST } from '../actions/postActions';
+import { DELETE_POST, ADD_POST } from '../actions/postActions';
 
 const initState = {
     posts: [
@@ -8,10 +8,9 @@ const initState = {
     ]
 }
 
-const rootReducer = (state = initState, action) => {
-    //change this to switch => case 1 deletePost
+const rootReducer = (state = initState,  action) => {
     switch(action.type) {
-        case 'DELETE_POST':
+        case DELETE_POST:
             let newPosts = state.posts.filter(post => {
                 return action.id !== post.id
             });
@@ -20,20 +19,17 @@ const rootReducer = (state = initState, action) => {
                 posts: newPosts
             };
             break;
-        case 'ADD_POST':
-            return state.concat([action.data]);
+        case ADD_POST:
+            return {
+                ...state,
+                posts: state.posts.concat({id: action.id, title: action.title, body: action.body})
+            };
+            console.log(state, "state")
             break;
         default:
             return state;
     }
-    const postReducer = ( state = initState, action) => {
-        switch(action.type) {
-            case 'ADD_POST':
-                return state.concat([action.data]);
-            default:
-                return state;
-        }
-    }
+
     return state;
 }
 

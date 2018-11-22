@@ -1,4 +1,5 @@
 export const DELETE_POST = 'DELETE_POST';
+export const ADD_POST = 'ADD_POST';
 
 export const deletePost = (id) => {
     return {
@@ -7,9 +8,11 @@ export const deletePost = (id) => {
     }
 }
 
-export const addPost = (id) => {
+export const addPost = (id, title, body) => {
     return {
-        type: 'ADD_POST',
-        id: id,
+        type: ADD_POST,
+        id,
+        title,
+        body,
     }
 }

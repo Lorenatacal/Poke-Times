@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux';
-import { deletePost, addPost } from '../actions/postActions'
+import { deletePost } from '../actions/postActions'
 
 class Post extends Component {
     handleClick = () => {

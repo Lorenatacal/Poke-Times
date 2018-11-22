@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { connect } from 'react-redux'
+import { addPost } from '../actions/postActions'
 
 class Form extends Component {
     constructor(props) {
@@ -32,7 +32,7 @@ class Form extends Component {
         const body = this.state.body;
         const id = Math.random();
         // Dispatch Action to add post
-        this.props.addPost( title, body);
+        this.props.addPost(id, title, body);
         this.setState({
             title: '',
             body: '',
