@@ -1,6 +1,4 @@
-import React, {Component} from 'react'
-import { connect } from 'react-redux';
-import { Link, NavLink, withRouter } from 'react-router-dom'
+import React from 'react'
 import Form from './Form'
 
 class AddPost extends React.Component {

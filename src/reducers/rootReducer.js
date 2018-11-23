@@ -18,18 +18,14 @@ const rootReducer = (state = initState,  action) => {
                 ...state,
                 posts: newPosts
             };
-            break;
         case ADD_POST:
             return {
                 ...state,
                 posts: state.posts.concat({id: action.id, title: action.title, body: action.body})
             };
-            break;
         default:
             return state;
     }
-
-    return state;
 }
 
 export default rootReducer

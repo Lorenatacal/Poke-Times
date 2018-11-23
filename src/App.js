@@ -5,7 +5,6 @@ import Home from './components/Home'
 import Contact from './components/Contact'
 import About from './components/About'
 import Post from './components/Post'
-import AddPost from './components/AddPost'
 
 class App extends Component {
   render() {
