@@ -30,7 +30,7 @@ class Form extends Component {
         e.preventDefault();
         const title = this.state.title;
         const body = this.state.body;
-        const id = Math.random();
+        const id = Math.random().toString();
         // Dispatch Action to add post
         this.props.addPost(id, title, body);
         this.setState({

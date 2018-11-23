@@ -24,7 +24,6 @@ const rootReducer = (state = initState,  action) => {
                 ...state,
                 posts: state.posts.concat({id: action.id, title: action.title, body: action.body})
             };
-            console.log(state, "state")
             break;
         default:
             return state;
