@@ -1,14 +1,23 @@
-import React, {Component} from 'react'
+import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import { deletePost } from '../actions/postActions'
+import { deletePost } from '../actions/postActions';
+import Form from './Form';
 
 class Post extends Component {
+    constructor(props) {
+        super(props);
+        this.state ={
+            showComponent: false,
+        };
+    }
     deletePost = () => {
         this.props.deletePost(this.props.post.id);
         this.props.history.push('/'); //redirects to the home page
     }
     editPost = () => {
-        alert("hI")
+        this.setState({
+            showComponent: true,
+        })
     }
     render() {
         const post = this.props.post ? (
@@ -22,6 +31,7 @@ class Post extends Component {
                     <button className="btn grey" onClick={this.editPost}>
                         Edit Post
                     </button>
+                    { this.state.showComponent && <Form /> } {/* conditional rendering */}
                 </div>
             </div>
         ) : (
