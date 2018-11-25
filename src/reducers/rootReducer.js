@@ -9,9 +9,10 @@ const initState = {
 }
 
 const rootReducer = (state = initState,  action) => {
+    let newPosts;
     switch(action.type) {
         case DELETE_POST:
-            let newPosts = state.posts.filter(post => {
+            newPosts = state.posts.filter(post => {
                 return action.id !== post.id
             });
             return {
@@ -22,6 +23,17 @@ const rootReducer = (state = initState,  action) => {
             return {
                 ...state,
                 posts: state.posts.concat({id: action.id, title: action.title, body: action.body})
+            };
+        case EDIT_POST:
+            newPosts = state.posts.map(post => post).forEach(post => {
+                if (post.id === action.id) {
+                    post.title = action.title;
+                    post.body = action.body;
+                }
+            })
+            return {
+                ...state,
+                posts: newPosts,
             };
         default:
             return state;
