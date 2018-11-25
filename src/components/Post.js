@@ -3,9 +3,12 @@ import { connect } from 'react-redux';
 import { deletePost } from '../actions/postActions'
 
 class Post extends Component {
-    handleClick = () => {
+    deletePost = () => {
         this.props.deletePost(this.props.post.id);
         this.props.history.push('/'); //redirects to the home page
+    }
+    editPost = () => {
+        alert("hI")
     }
     render() {
         const post = this.props.post ? (
@@ -13,8 +16,11 @@ class Post extends Component {
                 <h4 className="center">{this.props.post.title}</h4>
                 <p>{this.props.post.body}</p>
                 <div className="center">
-                    <button className="btn grey" onClick={this.handleClick}>
+                    <button className="btn red" onClick={this.deletePost}>
                         Delete Post
+                    </button>
+                    <button className="btn grey" onClick={this.editPost}>
+                        Edit Post
                     </button>
                 </div>
             </div>

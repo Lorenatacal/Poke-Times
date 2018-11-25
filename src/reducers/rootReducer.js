@@ -1,4 +1,4 @@
-import { DELETE_POST, ADD_POST } from '../actions/postActions';
+import { DELETE_POST, ADD_POST, EDIT_POST } from '../actions/postActions';
 
 const initState = {
     posts: [
