@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import { connect } from 'react-redux'
 import { addPost } from '../actions/postActions'
 
-class Form extends Component {
+class AddForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -64,4 +64,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Form);
+export default connect(mapStateToProps, mapDispatchToProps)(AddForm);

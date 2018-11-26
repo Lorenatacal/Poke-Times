@@ -1,5 +1,5 @@
 import React from 'react'
-import Form from './Form'
+import AddForm from './AddForm'
 
 class AddPost extends React.Component {
     constructor(props) {
@@ -22,7 +22,7 @@ class AddPost extends React.Component {
                 <button className="btn grey" onClick={this.onClick}>
                   Add Post
                 </button>
-                { this.state.showComponent && <Form /> }
+                { this.state.showComponent && <AddForm /> }
             </div>
         );
     }

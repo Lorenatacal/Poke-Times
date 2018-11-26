@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { deletePost } from '../actions/postActions';
-import Form from './Form';
+import EditForm from './EditForm';
 
 class Post extends Component {
     constructor(props) {
@@ -31,7 +31,7 @@ class Post extends Component {
                     <button className="btn grey" onClick={this.editPost}>
                         Edit Post
                     </button>
-                    { this.state.showComponent && <Form /> } {/* conditional rendering */}
+                    { this.state.showComponent && <EditForm post={this.props.post} /> } {/* conditional rendering */}
                 </div>
             </div>
         ) : (
