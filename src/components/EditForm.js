@@ -32,10 +32,6 @@ class EditForm extends Component {
         const body = this.state.body;
         const id = this.props.post.id;
         this.props.editPost(id, title, body);
-        this.setState({
-            title: '',
-            body: '',
-        });
         this.props.history.push('/');
     }
     
