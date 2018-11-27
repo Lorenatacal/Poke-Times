@@ -36,6 +36,7 @@ class EditForm extends Component {
             title: '',
             body: '',
         });
+        this.props.history.push('/');
     }
     
     render() {

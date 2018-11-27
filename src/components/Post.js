@@ -31,7 +31,7 @@ class Post extends Component {
                     <button className="btn grey" onClick={this.editPost}>
                         Edit Post
                     </button>
-                    { this.state.showComponent && <EditForm post={this.props.post} /> } {/* conditional rendering */}
+                    { this.state.showComponent && <EditForm post={this.props.post} history={this.props.history}/> } {/* conditional rendering */}
                 </div>
             </div>
         ) : (
