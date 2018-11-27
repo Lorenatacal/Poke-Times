@@ -17,7 +17,7 @@ class Post extends Component {
     editPost = () => {
         this.setState({
             showComponent: true,
-        })
+        });
     }
     render() {
         const post = this.props.post ? (

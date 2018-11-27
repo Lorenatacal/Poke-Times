@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
-import { addPost } from '../actions/postActions'
+import { editPost } from '../actions/postActions'
 
 class EditForm extends Component {
     constructor(props) {
@@ -30,9 +30,8 @@ class EditForm extends Component {
         e.preventDefault();
         const title = this.state.title;
         const body = this.state.body;
-        const id = Math.random().toString();
-        // Dispatch Action to add post
-        this.props.addPost(id, title, body);
+        const id = this.props.post.id;
+        this.props.editPost(id, title, body);
         this.setState({
             title: '',
             body: '',
@@ -52,16 +51,10 @@ class EditForm extends Component {
     }
 }
 
-const mapStateToProps = (state) => {
-    return {
-        posts: state.posts
-    }
-} 
-
 const mapDispatchToProps = (dispatch) => {
     return {
-        addPost: (id, title, body) => { dispatch(addPost(id, title, body)) },
+        editPost: (id, title, body) => { dispatch(editPost(id, title, body)) },
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(EditForm);
+export default connect(null, mapDispatchToProps)(EditForm);
