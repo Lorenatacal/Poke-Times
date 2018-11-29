@@ -30,3 +30,16 @@ test("addPost should create an action to add a post", () => {
     }
     expect(addPost(id, title, body)).toEqual(expectedAction)
 })
+
+test("editPost should create an action to edit a post", () => {
+    const id = "1"
+    const title = "My title"
+    const body = "My body"
+    const expectedAction = {
+        type: EDIT_POST,
+        id,
+        title,
+        body,
+    }
+    expect(editPost(id, title, body)).toEqual(expectedAction)
+})
