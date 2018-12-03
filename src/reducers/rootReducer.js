@@ -6,7 +6,7 @@ const initState = {
         {id: '2', title: 'Second title', body: 'This is the second body'},
         {id: '3', title: 'Third title', body: 'This is my third body'},
     ]
-}
+};
 
 const rootReducer = (state = initState,  action) => {
     let newPosts;
@@ -25,7 +25,6 @@ const rootReducer = (state = initState,  action) => {
                 posts: state.posts.concat({id: action.id, title: action.title, body: action.body})
             };
         case EDIT_POST:
-        // good job so far babe, see how we changed the forEach into another map?
             newPosts = state.posts.map(post => post).map(post => {
                 if (post.id === action.id) {
                     post.title = action.title;
