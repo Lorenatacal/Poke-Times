@@ -13,7 +13,7 @@ test("rootReducer should return the initial state", () => {
             {id: '3', title: 'Third title', body: 'This is my third body'},
         ]
     })
-})
+});
 
 test("rootReducer should handle DELETE_POST" , () => {
     const action = {
@@ -51,3 +51,20 @@ test("rootReducer should handle ADD_POST", () => {
     expect(state).toEqual(expectedState);
 })
 
+test("rootReducer should handle EDIT_POST", () => {
+    const action = {
+        type: EDIT_POST,
+        id: '3',
+        title: "New title",
+        body: "New body",
+    }
+    const state = rootReducer(undefined, action);
+    const expectedState = {
+        posts: [
+            {id: '1', title: 'First title', body: 'This is my body'},
+            {id: '2', title: 'Second title', body: 'This is the second body'},
+            {id: '3', title: 'New title', body: 'New body'},
+        ]
+    };
+    expect(state).toEqual(expectedState);
+})
