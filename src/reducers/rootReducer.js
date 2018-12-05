@@ -32,7 +32,6 @@ const rootReducer = (state = initState,  action) => {
                 }
                 return post
             });
-            console.log(newPosts, "new")
             return {
                 ...state,
                 posts: newPosts,

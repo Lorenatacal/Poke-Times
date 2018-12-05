@@ -4,7 +4,7 @@ import Pokeball from '../pokeball.png'
 import { connect } from 'react-redux'
 import AddPost from './AddPost'
 
-class Home extends Component {
+export class Home extends Component {
     render() {
         const { posts } = this.props; // object destructuring
         const postList = posts.length ? (

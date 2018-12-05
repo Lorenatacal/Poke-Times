@@ -1,0 +1,92 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home should render correctly with posts 1`] = `
+<div
+  className="container home"
+>
+  <h4
+    className="center"
+  >
+    Home
+  </h4>
+  <div
+    className="post card"
+    key="1"
+  >
+    <img
+      alt="A pokeball"
+      src="pokeball.png"
+    />
+    <div
+      className="card-content"
+    >
+      <Link
+        replace={false}
+        to="/1"
+      >
+        <span
+          className="card-title red-text"
+        >
+          First title
+        </span>
+      </Link>
+      <p>
+        This is my body
+      </p>
+    </div>
+  </div>
+  <div
+    className="post card"
+    key="2"
+  >
+    <img
+      alt="A pokeball"
+      src="pokeball.png"
+    />
+    <div
+      className="card-content"
+    >
+      <Link
+        replace={false}
+        to="/2"
+      >
+        <span
+          className="card-title red-text"
+        >
+          Second title
+        </span>
+      </Link>
+      <p>
+        This is the second body
+      </p>
+    </div>
+  </div>
+  <div
+    className="post card"
+    key="3"
+  >
+    <img
+      alt="A pokeball"
+      src="pokeball.png"
+    />
+    <div
+      className="card-content"
+    >
+      <Link
+        replace={false}
+        to="/3"
+      >
+        <span
+          className="card-title red-text"
+        >
+          Third title
+        </span>
+      </Link>
+      <p>
+        This is my third body
+      </p>
+    </div>
+  </div>
+  <AddPost />
+</div>
+`;
