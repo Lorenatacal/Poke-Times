@@ -17,4 +17,14 @@ test("Home should render correctly with posts", () => {
     };
     const wrapper = Enzyme.shallow(<Home posts={props.posts}/>);
     expect(toJson(wrapper)).toMatchSnapshot();
-})
+});
+
+test("Home should render correctly without posts", () => {
+    const props = {
+        posts: [  
+        ],
+        comments: [],
+    };
+    const wrapper = Enzyme.shallow(<Home {...props} />);
+    expect(toJson(wrapper)).toMatchSnapshot();
+});

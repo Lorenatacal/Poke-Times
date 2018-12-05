@@ -90,3 +90,21 @@ exports[`Home should render correctly with posts 1`] = `
   <AddPost />
 </div>
 `;
+
+exports[`Home should render correctly without posts 1`] = `
+<div
+  className="container home"
+>
+  <h4
+    className="center"
+  >
+    Home
+  </h4>
+  <div
+    className="center"
+  >
+    No posts yet
+  </div>
+  <AddPost />
+</div>
+`;
