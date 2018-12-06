@@ -108,3 +108,183 @@ exports[`Home should render correctly without posts 1`] = `
   <AddPost />
 </div>
 `;
+
+exports[`HomeConnected should render correctly 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <BrowserRouter>
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "createHref": [Function],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <Connect(Home)>
+        <Home
+          dispatch={[Function]}
+          posts={
+            Array [
+              Object {
+                "body": "This is my body",
+                "id": "1",
+                "title": "First title",
+              },
+              Object {
+                "body": "This is the second body",
+                "id": "2",
+                "title": "Second title",
+              },
+              Object {
+                "body": "This is my third body",
+                "id": "3",
+                "title": "Third title",
+              },
+            ]
+          }
+        >
+          <div
+            className="container home"
+          >
+            <h4
+              className="center"
+            >
+              Home
+            </h4>
+            <div
+              className="post card"
+              key="1"
+            >
+              <img
+                alt="A pokeball"
+                src="pokeball.png"
+              />
+              <div
+                className="card-content"
+              >
+                <Link
+                  replace={false}
+                  to="/1"
+                >
+                  <a
+                    href="/1"
+                    onClick={[Function]}
+                  >
+                    <span
+                      className="card-title red-text"
+                    >
+                      First title
+                    </span>
+                  </a>
+                </Link>
+                <p>
+                  This is my body
+                </p>
+              </div>
+            </div>
+            <div
+              className="post card"
+              key="2"
+            >
+              <img
+                alt="A pokeball"
+                src="pokeball.png"
+              />
+              <div
+                className="card-content"
+              >
+                <Link
+                  replace={false}
+                  to="/2"
+                >
+                  <a
+                    href="/2"
+                    onClick={[Function]}
+                  >
+                    <span
+                      className="card-title red-text"
+                    >
+                      Second title
+                    </span>
+                  </a>
+                </Link>
+                <p>
+                  This is the second body
+                </p>
+              </div>
+            </div>
+            <div
+              className="post card"
+              key="3"
+            >
+              <img
+                alt="A pokeball"
+                src="pokeball.png"
+              />
+              <div
+                className="card-content"
+              >
+                <Link
+                  replace={false}
+                  to="/3"
+                >
+                  <a
+                    href="/3"
+                    onClick={[Function]}
+                  >
+                    <span
+                      className="card-title red-text"
+                    >
+                      Third title
+                    </span>
+                  </a>
+                </Link>
+                <p>
+                  This is my third body
+                </p>
+              </div>
+            </div>
+            <AddPost>
+              <div
+                className="center"
+              >
+                <button
+                  className="btn grey"
+                  onClick={[Function]}
+                >
+                  Add Post
+                </button>
+              </div>
+            </AddPost>
+          </div>
+        </Home>
+      </Connect(Home)>
+    </Router>
+  </BrowserRouter>
+</Provider>
+`;
