@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddPost should render correctly 1`] = `
+<div
+  className="center"
+>
+  <button
+    className="btn grey"
+    data-name="AddPostButton"
+    onClick={[Function]}
+  >
+    Add Post
+  </button>
+</div>
+`;

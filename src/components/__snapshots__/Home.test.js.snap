@@ -275,6 +275,7 @@ exports[`HomeConnected should render correctly 1`] = `
               >
                 <button
                   className="btn grey"
+                  data-name="AddPostButton"
                   onClick={[Function]}
                 >
                   Add Post

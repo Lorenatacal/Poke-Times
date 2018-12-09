@@ -19,7 +19,7 @@ class AddPost extends React.Component {
     render() {
         return (
             <div className="center">
-                <button className="btn grey" onClick={this.onClick}>
+                <button data-name="AddPostButton" className="btn grey" onClick={this.onClick}>
                   Add Post
                 </button>
                 { this.state.showComponent && <AddForm /> }
