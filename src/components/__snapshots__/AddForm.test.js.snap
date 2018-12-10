@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddForm should render correctly 1`] = `
+<div
+  className="center post card"
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <input
+      data-name="userTitle"
+      onChange={[Function]}
+      placeholder="Your title"
+      value=""
+    />
+    <textarea
+      onChange={[Function]}
+      placeholder="Insert the post body"
+      value=""
+    />
+    <button
+      onClick={[Function]}
+      type="Submit"
+    >
+      Submit 
+    </button>
+  </form>
+</div>
+`;
