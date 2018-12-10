@@ -10,3 +10,10 @@ test("AddPost should render correctly", () => {
     const wrapper = Enzyme.shallow(<AddPost />);
     expect(toJson(wrapper)).toMatchSnapshot();
 });
+
+test("AddPost should render correctly onClick", () => {
+    const wrapper = Enzyme.shallow(<AddPost />);
+    const AddPostButton = wrapper.find('[data-name="AddPostButton"]');
+    AddPostButton.simulate('click');
+    expect(toJson(wrapper)).toMatchSnapshot();
+})

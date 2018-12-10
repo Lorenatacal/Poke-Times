@@ -13,3 +13,18 @@ exports[`AddPost should render correctly 1`] = `
   </button>
 </div>
 `;
+
+exports[`AddPost should render correctly onClick 1`] = `
+<div
+  className="center"
+>
+  <button
+    className="btn grey"
+    data-name="AddPostButton"
+    onClick={[Function]}
+  >
+    Add Post
+  </button>
+  <Connect(AddForm) />
+</div>
+`;
