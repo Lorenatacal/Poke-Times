@@ -16,4 +16,5 @@ test("AddPost should render correctly onClick", () => {
     const AddPostButton = wrapper.find('[data-name="AddPostButton"]');
     AddPostButton.simulate('click');
     expect(toJson(wrapper)).toMatchSnapshot();
+    //expect(toJson(wrapper.state('showComponent'))).toEqual(true);
 })
