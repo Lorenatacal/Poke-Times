@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
-import { addPost } from '../actions/postActions'
+import { addPostActionCreator } from '../actions/postActions'
 
 export class AddForm extends Component {
     constructor(props) {
@@ -31,7 +31,7 @@ export class AddForm extends Component {
         const body = this.state.body;
         const id = Math.random().toString();
         // Dispatch Action to add post
-        this.props.addPost(id, title, body);
+        this.props.addPostCallback(id, title, body);
         this.setState({
             title: '',
             body: '',
@@ -44,23 +44,17 @@ export class AddForm extends Component {
                 <form onSubmit={this.handleSubmit}>
                     <input data-name="userTitle" value={this.state.title} onChange={this.handleChange} placeholder="Your title" />
                     <textarea value={this.state.body} onChange={this.handleBody} placeholder="Insert the post body" />
-                    <button onClick={this.handleSubmit} type="Submit">Submit </button>
+                    <button data-name="submitForm" onClick={this.handleSubmit} type="Submit">Submit </button>
                 </form>
             </div>
         )
     }
 }
 
-const mapStateToProps = (state) => {
-    return {
-        posts: state.posts
-    }
-} 
-
 const mapDispatchToProps = (dispatch) => {
     return {
-        addPostCallback: (id, title, body) => { dispatch(addPostActioncreator(id, title, body)) },
+        addPostCallback: (id, title, body) => { dispatch(addPostActionCreator(id, title, body)) },
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddForm);
+export default connect(null, mapDispatchToProps)(AddForm);

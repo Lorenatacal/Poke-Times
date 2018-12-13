@@ -19,6 +19,7 @@ exports[`AddForm should render correctly 1`] = `
       value=""
     />
     <button
+      data-name="submitForm"
       onClick={[Function]}
       type="Submit"
     >

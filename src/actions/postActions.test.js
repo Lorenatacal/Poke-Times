@@ -1,6 +1,6 @@
 import { 
     deletePost, 
-    addPost, 
+    addPostActionCreator, 
     editPost, 
 } from './postActions';
 import {
@@ -28,7 +28,7 @@ test("addPost should create an action to add a post", () => {
         title,
         body,
     }
-    expect(addPost(id, title, body)).toEqual(expectedAction)
+    expect(addPostActionCreator(id, title, body)).toEqual(expectedAction)
 })
 
 test("editPost should create an action to edit a post", () => {

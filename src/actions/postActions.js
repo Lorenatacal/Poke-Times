@@ -9,7 +9,7 @@ export const deletePost = (id) => {
     }
 }
 
-export const addPost = (id, title, body) => {
+export const addPostActionCreator = (id, title, body) => {
     return {
         type: ADD_POST,
         id,
