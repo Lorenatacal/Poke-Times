@@ -13,12 +13,14 @@ test("AddForm should render correctly", () => {
 
 test("AddForm should call addPost when the user inputs title, body and clicks submit", () => {
     const spy = jest.fn();
-    // pass the props as an object that you spread in the component
-    const wrapper = Enzyme.shallow(<AddForm addPostCallback={spy} />);
+    const props = {
+        addPostCallback: spy,
+    };
+    const wrapper = Enzyme.shallow(<AddForm {...props} />);
     const userTitleInput = wrapper.find('[data-name="userTitle"]');
     userTitleInput.simulate('change', { target: { title: "New Post" } });
     const submitButton = wrapper.find('[data-name="submitForm"]');
     submitButton.simulate('click', { preventDefault() {} });
-
+    // ...CalledWith()
     expect(spy).toHaveBeenCalled();
 })
