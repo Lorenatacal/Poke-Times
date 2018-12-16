@@ -43,7 +43,7 @@ export class AddForm extends Component {
             <div className="center post card">
                 <form onSubmit={this.handleSubmit}>
                     <input data-name="userTitle" value={this.state.title} onChange={this.handleChange} placeholder="Your title" />
-                    <textarea value={this.state.body} onChange={this.handleBody} placeholder="Insert the post body" />
+                    <textarea data-name="userBody" value={this.state.body} onChange={this.handleBody} placeholder="Insert the post body" />
                     <button data-name="submitForm" onClick={this.handleSubmit} type="Submit">Submit </button>
                 </form>
             </div>

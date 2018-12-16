@@ -17,10 +17,15 @@ test("AddForm should call addPost when the user inputs title, body and clicks su
         addPostCallback: spy,
     };
     const wrapper = Enzyme.shallow(<AddForm {...props} />);
+    global.Math.random = jest.fn(() => 4);
+
     const userTitleInput = wrapper.find('[data-name="userTitle"]');
-    userTitleInput.simulate('change', { target: { title: "New Post" } });
+    userTitleInput.simulate('change', { target: { value: 'New Post' } });
+    const userBodyInput = wrapper.find('[data-name="userBody"]');
+    userBodyInput.simulate('change', { target: { value: 'My new body' } });
     const submitButton = wrapper.find('[data-name="submitForm"]');
     submitButton.simulate('click', { preventDefault() {} });
-    // ...CalledWith()
+
+    expect(spy).toHaveBeenCalledWith('4', 'New Post', 'My new body');
     expect(spy).toHaveBeenCalled();
 })

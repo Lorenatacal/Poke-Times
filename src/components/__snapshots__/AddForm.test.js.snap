@@ -14,6 +14,7 @@ exports[`AddForm should render correctly 1`] = `
       value=""
     />
     <textarea
+      data-name="userBody"
       onChange={[Function]}
       placeholder="Insert the post body"
       value=""
