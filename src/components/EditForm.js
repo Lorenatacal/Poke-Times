@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import { connect } from 'react-redux'
 import { editPost } from '../actions/postActions'
 
-class EditForm extends Component {
+export class EditForm extends Component {
     constructor(props) {
         super(props);
         this.state = {

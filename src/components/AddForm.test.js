@@ -3,8 +3,14 @@ import AddFormConnected, { AddForm } from './AddForm';
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import toJson from 'enzyme-to-json';
+import configureStore from 'redux-mock-store';
 
 Enzyme.configure({ adapter: new Adapter() });
+
+afterEach(() => {
+    jest.restoreAllMocks();
+    jest.resetAllMocks();
+});
 
 test("AddForm should render correctly", () => {
     const wrapper = Enzyme.shallow(<AddForm />);
