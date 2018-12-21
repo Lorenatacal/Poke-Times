@@ -32,16 +32,16 @@ export class EditForm extends Component {
         const body = this.state.body;
         const id = this.props.post.id;
         this.props.editPost(id, title, body);
-        this.props.history.push('/');
+        //this.props.history.push('/');
     }
     
     render() {
         return (
             <div className="center post card">
                 <form onSubmit={this.handleSubmit}>
-                    <input value={this.state.title} onChange={this.handleChange} placeholder="Your title" />
-                    <textarea value={this.state.body} onChange={this.handleBody} placeholder="Insert the post body" />
-                    <button onClick={this.handleSubmit} type="Submit">Submit </button>
+                    <input data-name="userEditTitle" value={this.state.title} onChange={this.handleChange} placeholder="Your title" />
+                    <textarea data-name="userEditBody" value={this.state.body} onChange={this.handleBody} placeholder="Insert the post body" />
+                    <button data-name="EditSubmit" onClick={this.handleSubmit} type="Submit">Submit </button>
                 </form>
             </div>
         )

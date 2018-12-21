@@ -8,16 +8,19 @@ exports[`EditForm should render correctly 1`] = `
     onSubmit={[Function]}
   >
     <input
+      data-name="userEditTitle"
       onChange={[Function]}
       placeholder="Your title"
       value="First post"
     />
     <textarea
+      data-name="userEditBody"
       onChange={[Function]}
       placeholder="Insert the post body"
       value="First body"
     />
     <button
+      data-name="EditSubmit"
       onClick={[Function]}
       type="Submit"
     >
