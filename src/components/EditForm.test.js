@@ -24,14 +24,18 @@ test('EditForm should render correctly', () => {
 })
 
 test('EdidForm should call editPost when the user inputs title, body and clicks submit', () => {
-    const spy = jest.fn();
+    const editSpy = jest.fn();
+    const pushSpy = jest.fn();
     const props = {
         post : {
             title: 'First post',
             body: 'First body',
             id: '2',
         },
-        editPost: spy,
+        history: {
+            push: pushSpy,
+        },
+        editPost: editSpy,
     };
     const wrapper = Enzyme.shallow(<EditForm {...props} />);
 
@@ -42,6 +46,5 @@ test('EdidForm should call editPost when the user inputs title, body and clicks 
     const submitEdit = wrapper.find('[data-name="EditSubmit"]');
     submitEdit.simulate('click', { preventDefault() {} });
 
-    expect(spy).toHaveBeenCalledWith('2', 'First post edited', 'First body edited');
-    expect(spy).toHaveBeenCalled();
+    expect(editSpy).toHaveBeenCalledWith('2', 'First post edited', 'First body edited');
 })
