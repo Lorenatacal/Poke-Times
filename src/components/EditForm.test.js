@@ -29,6 +29,7 @@ test('EdidForm should call editPost when the user inputs title, body and clicks 
         post : {
             title: 'First post',
             body: 'First body',
+            id: '2',
         },
         editPost: spy,
     };
@@ -41,6 +42,6 @@ test('EdidForm should call editPost when the user inputs title, body and clicks 
     const submitEdit = wrapper.find('[data-name="EditSubmit"]');
     submitEdit.simulate('click', { preventDefault() {} });
 
-  
+    expect(spy).toHaveBeenCalledWith('2', 'First post edited', 'First body edited');
     expect(spy).toHaveBeenCalled();
 })
