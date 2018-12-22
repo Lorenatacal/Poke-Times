@@ -3,7 +3,10 @@ import AddFormConnected, { AddForm } from './AddForm';
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import toJson from 'enzyme-to-json';
+import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
+import { BrowserRouter as Router } from 'react-router-dom';
+
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -34,4 +37,27 @@ test("AddForm should call addPost when the user inputs title, body and clicks su
 
     expect(spy).toHaveBeenCalledWith('4', 'New Post', 'My new body');
     expect(spy).toHaveBeenCalled();
+})
+
+test('AddFormConnected should render correctly', () => {
+    const initialState = {
+    };
+    const addPostAction =  { 
+        type: 'ADD_POST',
+        id: '1',
+        title: 'New Title',
+        body: 'New Body',
+    };
+    const store = configureStore()(initialState);
+
+    const wrapper = Enzyme.mount(
+        <Provider store={store}>
+            <Router>
+                <AddFormConnected />
+            </Router>
+        </Provider>
+    );
+
+    expect(toJson(wrapper)).toMatchSnapshot();
+
 })

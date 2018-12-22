@@ -29,3 +29,77 @@ exports[`AddForm should render correctly 1`] = `
   </form>
 </div>
 `;
+
+exports[`AddFormConnected should render correctly 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <BrowserRouter>
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "createHref": [Function],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <Connect(AddForm)>
+        <AddForm
+          addPostCallback={[Function]}
+        >
+          <div
+            className="center post card"
+          >
+            <form
+              onSubmit={[Function]}
+            >
+              <input
+                data-name="userTitle"
+                onChange={[Function]}
+                placeholder="Your title"
+                value=""
+              />
+              <textarea
+                data-name="userBody"
+                onChange={[Function]}
+                placeholder="Insert the post body"
+                value=""
+              />
+              <button
+                data-name="submitForm"
+                onClick={[Function]}
+                type="Submit"
+              >
+                Submit 
+              </button>
+            </form>
+          </div>
+        </AddForm>
+      </Connect(AddForm)>
+    </Router>
+  </BrowserRouter>
+</Provider>
+`;
