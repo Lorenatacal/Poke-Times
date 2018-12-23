@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import AddFormConnected, { AddForm } from './AddForm';
+import AddFormConnected, { AddForm, generateId } from './AddForm';
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import toJson from 'enzyme-to-json';
@@ -15,6 +15,12 @@ afterEach(() => {
     jest.resetAllMocks();
 });
 
+test("generateId should return a unique number", () => {
+    expect(generateId()).toEqual(4);
+    expect(generateId()).toEqual(5);
+    expect(generateId()).toEqual(6);
+})
+
 test("AddForm should render correctly", () => {
     const wrapper = Enzyme.shallow(<AddForm />);
     expect(toJson(wrapper)).toMatchSnapshot();
@@ -26,7 +32,7 @@ test("AddForm should call addPost when the user inputs title, body and clicks su
         addPostCallback: spy,
     };
     const wrapper = Enzyme.shallow(<AddForm {...props} />);
-    global.Math.random = jest.fn(() => 4);
+    //global.Math.random = jest.fn(() => 4);
 
     const userTitleInput = wrapper.find('[data-name="userTitle"]');
     userTitleInput.simulate('change', { target: { value: 'New Post' } });
@@ -59,5 +65,5 @@ test('AddFormConnected should render correctly', () => {
     );
 
     expect(toJson(wrapper)).toMatchSnapshot();
-
-})
+    //expect(store.getActions()).toEqual([action]);
+})  

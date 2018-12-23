@@ -2,6 +2,13 @@ import React, {Component} from 'react'
 import { connect } from 'react-redux'
 import { addPostActionCreator } from '../actions/postActions'
 
+let startingId = 3;
+
+export function generateId() {
+    startingId = startingId + 1;
+    return startingId;
+}
+
 export class AddForm extends Component {
     constructor(props) {
         super(props);
@@ -29,7 +36,7 @@ export class AddForm extends Component {
         e.preventDefault();
         const title = this.state.title;
         const body = this.state.body;
-        const id = Math.random().toString();
+        //const id = Math.random().toString();
         // Dispatch Action to add post
         this.props.addPostCallback(id, title, body);
         this.setState({
