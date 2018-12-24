@@ -30,7 +30,7 @@ exports[`AddForm should render correctly 1`] = `
 </div>
 `;
 
-exports[`AddFormConnected should render correctly 1`] = `
+exports[`AddFormConnected should should dispatch ADD_POST action 1`] = `
 <Provider
   store={
     Object {

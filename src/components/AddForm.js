@@ -36,7 +36,7 @@ export class AddForm extends Component {
         e.preventDefault();
         const title = this.state.title;
         const body = this.state.body;
-        //const id = Math.random().toString();
+        const id = generateId().toString();
         // Dispatch Action to add post
         this.props.addPostCallback(id, title, body);
         this.setState({

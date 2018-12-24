@@ -15,7 +15,7 @@ afterEach(() => {
     jest.resetAllMocks();
 });
 
-test("generateId should return a unique number", () => {
+test("generateId should increment and return a number starting from 3", () => {
     expect(generateId()).toEqual(4);
     expect(generateId()).toEqual(5);
     expect(generateId()).toEqual(6);
@@ -27,12 +27,11 @@ test("AddForm should render correctly", () => {
 })
 
 test("AddForm should call addPost when the user inputs title, body and clicks submit", () => {
-    const spy = jest.fn();
+    const addPostCallbackSpy = jest.fn();
     const props = {
-        addPostCallback: spy,
+        addPostCallback: addPostCallbackSpy,
     };
     const wrapper = Enzyme.shallow(<AddForm {...props} />);
-    //global.Math.random = jest.fn(() => 4);
 
     const userTitleInput = wrapper.find('[data-name="userTitle"]');
     userTitleInput.simulate('change', { target: { value: 'New Post' } });
@@ -41,16 +40,16 @@ test("AddForm should call addPost when the user inputs title, body and clicks su
     const submitButton = wrapper.find('[data-name="submitForm"]');
     submitButton.simulate('click', { preventDefault() {} });
 
-    expect(spy).toHaveBeenCalledWith('4', 'New Post', 'My new body');
-    expect(spy).toHaveBeenCalled();
+    expect(addPostCallbackSpy).toHaveBeenCalledWith('7', 'New Post', 'My new body');
+    expect(addPostCallbackSpy).toHaveBeenCalled();
 })
 
-test('AddFormConnected should render correctly', () => {
+test('AddFormConnected should should dispatch ADD_POST action', () => {
     const initialState = {
     };
     const addPostAction =  { 
         type: 'ADD_POST',
-        id: '1',
+        id: '8',
         title: 'New Title',
         body: 'New Body',
     };
@@ -64,6 +63,13 @@ test('AddFormConnected should render correctly', () => {
         </Provider>
     );
 
+    const userTitleInput = wrapper.find('[data-name="userTitle"]');
+    userTitleInput.simulate('change', { target: { value: 'New Title' } });
+    const userBodyInput = wrapper.find('[data-name="userBody"]');
+    userBodyInput.simulate('change', { target: { value: 'New Body' } });
+    const submitButton = wrapper.find('[data-name="submitForm"]');
+    submitButton.simulate('click', { preventDefault() {} });
+
     expect(toJson(wrapper)).toMatchSnapshot();
-    //expect(store.getActions()).toEqual([action]);
+    expect(store.getActions()).toEqual([addPostAction]);
 })  
