@@ -2,23 +2,24 @@ import React, {Component} from 'react'
 import { connect } from 'react-redux'
 import { addPostActionCreator } from '../actions/postActions'
 
-let startingId = 3;
-
-export function generateId() {
-    startingId = startingId + 1;
-    return startingId;
-}
-
 export class AddForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            startingId: 3,
             title: '',
             body: '',
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleBody = this.handleBody.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.generateId = this.generateId.bind(this);
+    }
+
+    generateId() {
+        const { startingId } = this.state;
+        this.setState({ startingId: startingId + 1 });
+        return startingId + 1;
     }
 
     handleChange(event) {
@@ -36,7 +37,7 @@ export class AddForm extends Component {
         e.preventDefault();
         const title = this.state.title;
         const body = this.state.body;
-        const id = generateId().toString();
+        const id = this.generateId().toString();
         // Dispatch Action to add post
         this.props.addPostCallback(id, title, body);
         this.setState({

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import AddFormConnected, { AddForm, generateId } from './AddForm';
+import AddFormConnected, { AddForm } from './AddForm';
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import toJson from 'enzyme-to-json';
@@ -16,9 +16,10 @@ afterEach(() => {
 });
 
 test("generateId should increment and return a number starting from 3", () => {
-    expect(generateId()).toEqual(4);
-    expect(generateId()).toEqual(5);
-    expect(generateId()).toEqual(6);
+    const wrapper = Enzyme.shallow(<AddForm />);
+    expect(wrapper.instance().generateId()).toEqual(4);
+    expect(wrapper.instance().generateId()).toEqual(5);
+    expect(wrapper.instance().generateId()).toEqual(6);
 })
 
 test("AddForm should render correctly", () => {
@@ -40,7 +41,7 @@ test("AddForm should call addPost when the user inputs title, body and clicks su
     const submitButton = wrapper.find('[data-name="submitForm"]');
     submitButton.simulate('click', { preventDefault() {} });
 
-    expect(addPostCallbackSpy).toHaveBeenCalledWith('7', 'New Post', 'My new body');
+    expect(addPostCallbackSpy).toHaveBeenCalledWith('4', 'New Post', 'My new body');
     expect(addPostCallbackSpy).toHaveBeenCalled();
 })
 
@@ -49,7 +50,7 @@ test('AddFormConnected should should dispatch ADD_POST action', () => {
     };
     const addPostAction =  { 
         type: 'ADD_POST',
-        id: '8',
+        id: '4',
         title: 'New Title',
         body: 'New Body',
     };
