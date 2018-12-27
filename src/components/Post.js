@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { deletePost } from '../actions/postActions';
 import EditForm from './EditForm';
 
-class Post extends Component {
+export class Post extends Component {
     constructor(props) {
         super(props);
         this.state ={
