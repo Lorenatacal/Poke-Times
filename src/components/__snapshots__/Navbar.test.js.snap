@@ -1,0 +1,147 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NavBar should render correctly 1`] = `
+<BrowserRouter>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <withRouter(Navbar)>
+      <Route>
+        <Navbar
+          history={
+            Object {
+              "action": "POP",
+              "block": [Function],
+              "createHref": [Function],
+              "go": [Function],
+              "goBack": [Function],
+              "goForward": [Function],
+              "length": 1,
+              "listen": [Function],
+              "location": Object {
+                "hash": "",
+                "pathname": "/",
+                "search": "",
+                "state": undefined,
+              },
+              "push": [Function],
+              "replace": [Function],
+            }
+          }
+          location={
+            Object {
+              "hash": "",
+              "pathname": "/",
+              "search": "",
+              "state": undefined,
+            }
+          }
+          match={
+            Object {
+              "isExact": true,
+              "params": Object {},
+              "path": "/",
+              "url": "/",
+            }
+          }
+        >
+          <nav
+            className="nav wrapper red darken-3"
+          >
+            <div
+              className="container"
+            >
+              <ul
+                className="right"
+              >
+                <li>
+                  <Link
+                    replace={false}
+                    to="/"
+                  >
+                    <a
+                      href="/"
+                      onClick={[Function]}
+                    >
+                      Home
+                    </a>
+                  </Link>
+                </li>
+                <li>
+                  <NavLink
+                    activeClassName="active"
+                    aria-current="page"
+                    to="/about"
+                  >
+                    <Route
+                      path="\\\\/about"
+                    >
+                      <Link
+                        aria-current={null}
+                        replace={false}
+                        to="/about"
+                      >
+                        <a
+                          aria-current={null}
+                          href="/about"
+                          onClick={[Function]}
+                        >
+                          About
+                        </a>
+                      </Link>
+                    </Route>
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    activeClassName="active"
+                    aria-current="page"
+                    to="/contact"
+                  >
+                    <Route
+                      path="\\\\/contact"
+                    >
+                      <Link
+                        aria-current={null}
+                        replace={false}
+                        to="/contact"
+                      >
+                        <a
+                          aria-current={null}
+                          href="/contact"
+                          onClick={[Function]}
+                        >
+                          Contact
+                        </a>
+                      </Link>
+                    </Route>
+                  </NavLink>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </Navbar>
+      </Route>
+    </withRouter(Navbar)>
+  </Router>
+</BrowserRouter>
+`;
