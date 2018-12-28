@@ -11,3 +11,15 @@ exports[`Post should render correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`Post should render correctly without posts 1`] = `
+<div
+  className="container"
+>
+  <div
+    className="center"
+  >
+    Loding post.....
+  </div>
+</div>
+`;

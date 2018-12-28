@@ -29,7 +29,7 @@ export class Post extends Component {
                     <button data-name="deleteSubmit" className="btn red" onClick={this.deletePost}>
                         Delete Post
                     </button>
-                    <button className="btn grey" onClick={this.editPost}>
+                    <button data-name="editButton" className="btn grey" onClick={this.editPost}>
                         Edit Post
                     </button>
                     { this.state.showComponent && <EditForm post={this.props.post} history={this.props.history}/> } {/* conditional rendering */}

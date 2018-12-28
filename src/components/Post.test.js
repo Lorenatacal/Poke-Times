@@ -10,12 +10,12 @@ import { BrowserRouter as Router } from 'react-router-dom';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-test('Post should render correctly', () => {
+test('Post should render correctly without posts', () => {
     const wrapper = Enzyme.shallow(<Post />);
     expect(toJson(wrapper)).toMatchSnapshot();
 })
 
-test('Post should call deletePost when the user clicks submit', () => {
+test('Post should call deletePost when the user clicks delete', () => {
     const deleteSpy = jest.fn();
     const pushSpy = jest.fn();
     const props = {
@@ -32,4 +32,19 @@ test('Post should call deletePost when the user clicks submit', () => {
     const deletePost = wrapper.find('[data-name="deleteSubmit"]');
     deletePost.simulate('click');
     expect(deleteSpy).toHaveBeenCalledWith('2');
+})
+
+test('Post should call editPost when the user clicks submit', () => {
+    const props = {
+        post: {
+            id: '1', 
+            title: 'First title', 
+            body: 'This is my body',
+        },
+    };
+    const wrapper = Enzyme.shallow(<Post {...props} />);
+    console.log(wrapper.debug(), 'wrapper')
+    const editButton = wrapper.find('[data-name="editButton"]');
+    editButton.simulate('click');
+    expect(wrapper.state('showComponent')).toEqual(true);
 })

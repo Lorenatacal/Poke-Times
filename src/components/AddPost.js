@@ -6,7 +6,7 @@ class AddPost extends React.Component {
         super(props);
         this.state = {
             showComponent: false,
-        };
+        };  
         this.onClick = this.onClick.bind(this);
     }
 
