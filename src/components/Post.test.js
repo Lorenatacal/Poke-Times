@@ -14,3 +14,22 @@ test('Post should render correctly', () => {
     const wrapper = Enzyme.shallow(<Post />);
     expect(toJson(wrapper)).toMatchSnapshot();
 })
+
+test('Post should call deletePost when the user clicks submit', () => {
+    const deleteSpy = jest.fn();
+    const pushSpy = jest.fn();
+    const props = {
+        post : {
+            id: '2',
+        },
+        history: {
+            push: pushSpy,
+        },
+        deletePost: deleteSpy,
+    };
+    const wrapper = Enzyme.shallow(<Post {...props} />)
+
+    const deletePost = wrapper.find('[data-name="deleteSubmit"]');
+    deletePost.simulate('click');
+    expect(deleteSpy).toHaveBeenCalledWith('2');
+})

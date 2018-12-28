@@ -26,7 +26,7 @@ export class Post extends Component {
                 <h4 className="center">{this.props.post.title}</h4>
                 <p>{this.props.post.body}</p>
                 <div className="center">
-                    <button className="btn red" onClick={this.deletePost}>
+                    <button data-name="deleteSubmit" className="btn red" onClick={this.deletePost}>
                         Delete Post
                     </button>
                     <button className="btn grey" onClick={this.editPost}>
