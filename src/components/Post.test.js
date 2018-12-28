@@ -34,7 +34,7 @@ test('Post should call deletePost when the user clicks delete', () => {
     expect(deleteSpy).toHaveBeenCalledWith('2');
 })
 
-test('Post should call editPost when the user clicks submit', () => {
+test('Post should call editPost when the user clicks Edit Post', () => {
     const props = {
         post: {
             id: '1', 
