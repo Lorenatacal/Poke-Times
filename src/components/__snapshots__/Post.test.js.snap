@@ -1,13 +1,39 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Post should render correctly 1`] = `
+exports[`Post should render correctly with posts 1`] = `
 <div
   className="container"
 >
   <div
-    className="center"
+    className="post"
   >
-    Loding post.....
+    <h4
+      className="center"
+    >
+      First title
+    </h4>
+    <p>
+      This is my body
+    </p>
+    <div
+      className="center"
+    >
+      <button
+        className="btn red"
+        data-name="deleteSubmit"
+        onClick={[Function]}
+      >
+        Delete Post
+      </button>
+      <button
+        className="btn grey"
+        data-name="editButton"
+        onClick={[Function]}
+      >
+        Edit Post
+      </button>
+       
+    </div>
   </div>
 </div>
 `;
