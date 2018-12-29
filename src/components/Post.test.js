@@ -54,6 +54,7 @@ test('Post should call editPost when the user clicks Edit Post', () => {
             body: 'This is my body',
         },
     };
+
     const wrapper = Enzyme.shallow(<Post {...props} />);
     const editButton = wrapper.find('[data-name="editButton"]');
     editButton.simulate('click');
@@ -73,7 +74,8 @@ test('PostConnected should render correctly', () => {
            params: {
                post_id: '2',
            }
-       }
+       },
+       
    }
     const store = configureStore()(initialState);
     const wrapper = Enzyme.mount(
@@ -82,4 +84,39 @@ test('PostConnected should render correctly', () => {
         </Provider>
     )
     expect(toJson(wrapper)).toMatchSnapshot(); 
+})
+
+test('PostConnected should dispatch DELETE_POST action', () => {
+    const pushSpy = jest.fn();
+    const props = {
+        match: {
+            params: {
+                post_id: '3',
+            }
+        },
+        history: {
+            push: pushSpy,
+        },
+    }
+    const initialState = {
+        posts: [
+            {id: '1', title: 'First title', body: 'This is my body'},
+            {id: '2', title: 'Second title', body: 'This is the second body'},
+            {id: '3', title: 'Third title', body: 'This is my third body'},
+        ],
+    };
+    const deletePostAction = {
+        type: 'DELETE_POST',
+        id: '3',
+    };
+    const store = configureStore()(initialState);
+    const wrapper = Enzyme.mount(
+        <Provider store ={store}>
+            <PostConnected {...props}/>
+        </Provider>
+    )
+    const deletePost = wrapper.find('[data-name="deleteSubmit"]');
+    deletePost.simulate('click');
+    expect(toJson(wrapper)).toMatchSnapshot();
+    expect(store.getActions()).toEqual([deletePostAction]);
 })

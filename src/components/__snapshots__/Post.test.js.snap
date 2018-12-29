@@ -50,6 +50,119 @@ exports[`Post should render correctly without posts 1`] = `
 </div>
 `;
 
+exports[`PostConnected should dispatch DELETE_POST action 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Connect(Post)
+    history={
+      Object {
+        "push": [MockFunction] {
+          "calls": Array [
+            Array [
+              "/",
+            ],
+          ],
+          "results": Array [
+            Object {
+              "isThrow": false,
+              "value": undefined,
+            },
+          ],
+        },
+      }
+    }
+    match={
+      Object {
+        "params": Object {
+          "post_id": "3",
+        },
+      }
+    }
+  >
+    <Post
+      deletePost={[Function]}
+      history={
+        Object {
+          "push": [MockFunction] {
+            "calls": Array [
+              Array [
+                "/",
+              ],
+            ],
+            "results": Array [
+              Object {
+                "isThrow": false,
+                "value": undefined,
+              },
+            ],
+          },
+        }
+      }
+      match={
+        Object {
+          "params": Object {
+            "post_id": "3",
+          },
+        }
+      }
+      post={
+        Object {
+          "body": "This is my third body",
+          "id": "3",
+          "title": "Third title",
+        }
+      }
+    >
+      <div
+        className="container"
+      >
+        <div
+          className="post"
+        >
+          <h4
+            className="center"
+          >
+            Third title
+          </h4>
+          <p>
+            This is my third body
+          </p>
+          <div
+            className="center"
+          >
+            <button
+              className="btn red"
+              data-name="deleteSubmit"
+              onClick={[Function]}
+            >
+              Delete Post
+            </button>
+            <button
+              className="btn grey"
+              data-name="editButton"
+              onClick={[Function]}
+            >
+              Edit Post
+            </button>
+             
+          </div>
+        </div>
+      </div>
+    </Post>
+  </Connect(Post)>
+</Provider>
+`;
+
 exports[`PostConnected should render correctly 1`] = `
 <Provider
   store={
