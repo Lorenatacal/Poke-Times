@@ -59,3 +59,27 @@ test('Post should call editPost when the user clicks Edit Post', () => {
     editButton.simulate('click');
     expect(wrapper.state('showComponent')).toEqual(true);
 })
+
+test('PostConnected should render correctly', () => {
+    const initialState = {
+        posts: [
+            {id: '1', title: 'First title', body: 'This is my body'},
+            {id: '2', title: 'Second title', body: 'This is the second body'},
+            {id: '3', title: 'Third title', body: 'This is my third body'},
+        ],
+    };
+   const props = {
+       match: {
+           params: {
+               post_id: '2',
+           }
+       }
+   }
+    const store = configureStore()(initialState);
+    const wrapper = Enzyme.mount(
+        <Provider store ={store}>
+            <PostConnected {...props}/>
+        </Provider>
+    )
+    expect(toJson(wrapper)).toMatchSnapshot(); 
+})
