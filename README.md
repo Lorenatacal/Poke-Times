@@ -28,6 +28,9 @@ Contact Page
 
 #### To see the game online: https://poke-time.herokuapp.com/
 
+#### Testing
+
+ * To run the tests: ```click npm run test```
 
 ## Extra Info
-Poke time is a React App in which I used for the first time Redux to manage the state of the application an React Router to create the routers for the Nav Bar. In order to create this project I have followed a tutorial, but I have improved the App by adding a Delete Post Button  and an Edit Post Button, this made me use and learn all 4 basic functions of storage (C.R.U.D.)
+Poke time is a React App in which I used for the first time Redux to manage the state of the application and React Router to create the routers for the Nav Bar. In order to create this project I have followed a tutorial, but I have improved the App by adding a Delete Post Button  and an Edit Post Button, this made me use and learn all 4 basic functions of storage (C.R.U.D.) All the components of the App are tested, including the actions, the components and the reducers; this being  also the first time when I have tested mapStateToProps and MapDispatchToProps

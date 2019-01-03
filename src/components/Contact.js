@@ -4,7 +4,19 @@ const Contact = (props) => {
     return (
         <div className="container">
             <h4 className="center">Contact</h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, expedita quaerat in ea delectus deserunt excepturi hic id quisquam quod facilis porro necessitatibus culpa, earum sunt enim, recusandae nulla doloremque?</p>
+            <div className="center post card">
+                <form>
+                    Surname: 
+                    <input  type="text" name="surname" placeholder="Type your surname here"/>
+                    First Name:
+                    <input type="Text" name="firstName" placeholder="Type your first name here"/>
+                    Email address:
+                    <input type="Text" name="email" placeholder="Type your email here"/>
+                    Message:
+                    <textarea placeholder="Please enter your message here" />
+                    <button className="center" type="Submit">Submit</button>
+                </form>
+            </div>
         </div>
     )
 }
