@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import ReactContactForm from 'react-mail-form';
 
 const StyledContainer = styled.div`
     max-width: 800px;
@@ -33,26 +32,36 @@ const StyledInput = styled.input`
     font-size: 1.5em;
 `
 
-const Contact = (props) => {
-    return (
-        <StyledContainer>   
-            <styledDiv>
-                <StyledForm>
-                    <StyledTitle>Contact Us</StyledTitle>
-                    <label>
-                        <StyledInput type="Text" placeholder="Type your name here"/>
-                    </label>
-                    <label>
-                        <StyledInput type="Text" placeholder="Type your email here"/>
-                    </label>
-                    <label>
-                        <StyledTextarea placeholder="Please enter your message here" />
-                    </label>
-                    <StyleButton type="Submit">Submit</StyleButton>
-                </StyledForm>
-            </styledDiv>
-        </StyledContainer>
-    )
+class Contact extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            name: '',
+            email: '',
+            message: '',
+        }  
+    }
+    render() {
+        return (
+            <StyledContainer>   
+                <styledDiv>
+                    <StyledForm>
+                        <StyledTitle>Contact Us</StyledTitle>
+                        <label>
+                            <StyledInput type="Text" placeholder="Type your name here"/>
+                        </label>
+                        <label>
+                            <StyledInput type="Text" placeholder="Type your email here"/>
+                        </label>
+                        <label>
+                            <StyledTextarea placeholder="Please enter your message here" />
+                        </label>
+                        <StyleButton type="Submit">Submit</StyleButton>
+                    </StyledForm>
+                </styledDiv>
+            </StyledContainer>
+        )
+    }
 }
 
 export default Contact
