@@ -35,7 +35,7 @@ const StyledInput = styled.input`
 
 export default class Contact extends React.Component {
         state = {
-            contact: '',
+            message: '',
             email: '',
             name: '',
             formSubmitted: false
@@ -45,16 +45,17 @@ export default class Contact extends React.Component {
     handleChange = this.handleChange.bind(this);
     handleSubmit = this.handleSubmit.bind(this);
     handleChangeEmail = this.handleChangeEmail.bind(this);
+    handleChangeName = this.handleChangeName.bind(this);
     
         handleCancel() {
             this.setState({
-                contact: ''
+                message: ''
             });
         }
 
         handleChange(e) {
             this.setState({
-                contact: e.target.value,
+                message: e.target.value,
             });
         }
 
@@ -64,9 +65,14 @@ export default class Contact extends React.Component {
             });
         }
 
+        handleChangeName(e) {
+            this.setState({
+                name: e.target.value,
+            });
+        }
+
     handleSubmit(event) {
         event.preventDefault();
-        alert(this.state.email + this.state.contact)
 
         const receiverEmail = 'lorena.tacal@yahoo.com';
         const template = 'template_oW3Ymk9r';
@@ -75,8 +81,9 @@ export default class Contact extends React.Component {
           template,
           this.sender,
           receiverEmail,
-          this.state.contact,
+          this.state.message,
           this.state.email,
+          this.state.name,
         );
 
       this.setState({
@@ -85,13 +92,14 @@ export default class Contact extends React.Component {
       this.props.history.push('/');
     }
 
-    sendContact (templateId, senderEmail, receiverEmail, contact, email) {
+    sendContact (templateId, senderEmail, receiverEmail, message, email, name) {
         window.emailjs
         .send('mailgun', templateId, {
                 senderEmail,
                 receiverEmail,
-                contact,
-                email
+                message,
+                email,
+                name
             })
             .then(res => {
                 this.setState({
@@ -109,13 +117,13 @@ export default class Contact extends React.Component {
                     <StyledForm onSubmit={this.handleSubmit}>
                         <StyledTitle>Contact Us</StyledTitle>
                         <label>
-                            <StyledInput type="Text" name="name-entry"  placeholder="Type your name here" />
+                            <StyledInput type="Text" name="name-entry" onChange={this.handleChangeName}  placeholder="Type your name here" required value ={this.state.name}/>
                         </label>
                         <label>
                             <StyledInput id="email-entry" type="Text" name="email-entry" onChange={this.handleChangeEmail} placeholder="Type your email here" required value ={this.state.email}/>
                         </label>
                         <label>
-                            <StyledTextarea id="contact-entry" type="Text" name="contact-entry" onChange={this.handleChange} placeholder="Please enter your message here" required value ={this.state.contact}/>
+                            <StyledTextarea id="contact-entry" type="Text" name="contact-entry" onChange={this.handleChange} placeholder="Please enter your message here" required value ={this.state.message}/>
                         </label>
                         <div className="btn-group center">
                             <button className="btn btn--cancel grey" >
