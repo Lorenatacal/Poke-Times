@@ -5,6 +5,7 @@ import Home from './components/Home'
 import Contact from './components/Contact'
 import About from './components/About'
 import Post from './components/Post'
+import PropTypes from 'prop-types'
 
 class App extends Component {
   render() {
@@ -23,5 +24,9 @@ class App extends Component {
     );
   }
 }
+
+App.propTypes = {
+  env: PropTypes.object.isRequired
+};
 
 export default App;

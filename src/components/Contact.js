@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
@@ -32,40 +33,66 @@ const StyledInput = styled.input`
     font-size: 1.5em;
 `
 
-class Contact extends React.Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            name: '',
+export default class Contact extends React.Component {
+        state = {
+            contact: '',
             email: '',
-            message: '',
+            name: '',
+            formSubmitted: false
+        };
+
+    handleCancel = this.handleCancel.bind(this);
+    handleChange = this.handleChange.bind(this);
+    handleSubmit = this.handleSubmit.bind(this);
+
+        static sender = 'sender@example.com';
+    
+        handleCancel() {
+            this.setState({
+                contact: ''
+            });
         }
-        this.handleChangeName = this.handleChangeName.bind(this);
-        this.handleChangeEmail = this.handleChangeEmail.bind(this);
-        this.handleChangeMessage = this.handleChangeMessage.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
-    handleChangeName(event) {
-        this.setState({
-            name: event.target.value,
-        })
-    }
 
-    handleChangeEmail(event) {
-        this.setState({
-            email: event.target.value,
-        })
-    }
-
-    handleChangeMessage(event) {
-        this.setState({
-            message: event.target.value,
-        })
-    }
+        handleChange(e) {
+            this.setState({
+                contact: e.target.value,
+            });
+        }
 
     handleSubmit(event) {
-        alert("This" + this.state.name + this.state.email + this.state.message);
+        event.preventDefault();
+
+        const receiverEmail = 'lorena.tacal@yahoo.com';
+        const template = 'template_oW3Ymk9r';
+    
+      this.sendContact(
+          template,
+          this.sender,
+          receiverEmail,
+          this.state.contact
+        );
+
+      this.setState({
+          formSubmitted: true
+      });
+      this.props.history.push('/');
     }
+
+    sendContact (templateId, senderEmail, receiverEmail, contact) {
+        window.emailjs
+        .send('mailgun', templateId, {
+                senderEmail,
+                receiverEmail,
+                contact
+            })
+            .then(res => {
+                this.setState({
+                    formEmailSent: true
+                });
+            })
+            .catch(err => console.error('Failed to send feedback. Error: ', err))
+    }
+
 
     render() {
         return (
@@ -74,15 +101,20 @@ class Contact extends React.Component {
                     <StyledForm onSubmit={this.handleSubmit}>
                         <StyledTitle>Contact Us</StyledTitle>
                         <label>
-                            <StyledInput type="Text" value={this.state.value} onChange={this.handleChangeName} placeholder="Type your name here"/>
+                            <StyledInput type="Text" name="name-entry"  placeholder="Type your name here" />
                         </label>
                         <label>
-                            <StyledInput type="Text" value={this.state.value} onChange={this.handleChangeEmail} placeholder="Type your email here"/>
+                            <StyledInput id="email-entry" type="Text" name="email-entry" placeholder="Type your email here" />
                         </label>
                         <label>
-                            <StyledTextarea value={this.state.value} onChange={this.handleChangeMessage} placeholder="Please enter your message here" />
+                            <StyledTextarea id="contact-entry" type="Text" name="contact-entry" onChange={this.handleChange} placeholder="Please enter your message here" required value ={this.state.contact}/>
                         </label>
-                        <StyleButton type="Submit">Submit</StyleButton>
+                        <div className="btn-group center">
+                            <button className="btn btn--cancel grey" >
+                                Cancel
+                            </button>
+                            <input type="submit" value="Submit" className="btn btn--submit grey" />
+                            </div>
                     </StyledForm>
                 </div>
             </StyledContainer>
@@ -90,4 +122,6 @@ class Contact extends React.Component {
     }
 }
 
-export default Contact
+// Contact.propTypes = {
+//     env: PropTypes.object.isRequired
+//   };
