@@ -44,8 +44,7 @@ export default class Contact extends React.Component {
     handleCancel = this.handleCancel.bind(this);
     handleChange = this.handleChange.bind(this);
     handleSubmit = this.handleSubmit.bind(this);
-
-        static sender = 'sender@example.com';
+    handleChangeEmail = this.handleChangeEmail.bind(this);
     
         handleCancel() {
             this.setState({
@@ -59,8 +58,15 @@ export default class Contact extends React.Component {
             });
         }
 
+        handleChangeEmail(e) {
+            this.setState({
+                email: e.target.value,
+            });
+        }
+
     handleSubmit(event) {
         event.preventDefault();
+        alert(this.state.email + this.state.contact)
 
         const receiverEmail = 'lorena.tacal@yahoo.com';
         const template = 'template_oW3Ymk9r';
@@ -69,7 +75,8 @@ export default class Contact extends React.Component {
           template,
           this.sender,
           receiverEmail,
-          this.state.contact
+          this.state.contact,
+          this.state.email,
         );
 
       this.setState({
@@ -78,12 +85,13 @@ export default class Contact extends React.Component {
       this.props.history.push('/');
     }
 
-    sendContact (templateId, senderEmail, receiverEmail, contact) {
+    sendContact (templateId, senderEmail, receiverEmail, contact, email) {
         window.emailjs
         .send('mailgun', templateId, {
                 senderEmail,
                 receiverEmail,
-                contact
+                contact,
+                email
             })
             .then(res => {
                 this.setState({
@@ -104,7 +112,7 @@ export default class Contact extends React.Component {
                             <StyledInput type="Text" name="name-entry"  placeholder="Type your name here" />
                         </label>
                         <label>
-                            <StyledInput id="email-entry" type="Text" name="email-entry" placeholder="Type your email here" />
+                            <StyledInput id="email-entry" type="Text" name="email-entry" onChange={this.handleChangeEmail} placeholder="Type your email here" required value ={this.state.email}/>
                         </label>
                         <label>
                             <StyledTextarea id="contact-entry" type="Text" name="contact-entry" onChange={this.handleChange} placeholder="Please enter your message here" required value ={this.state.contact}/>
