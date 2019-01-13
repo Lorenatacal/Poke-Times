@@ -74,8 +74,8 @@ export default class Contact extends React.Component {
     handleSubmit(event) {
         event.preventDefault();
 
-        const receiverEmail = 'lorena.tacal@yahoo.com';
-        const template = 'template_oW3Ymk9r';
+        const receiverEmail = process.env.REACT_APP_EMAILJS_USERID;
+        const template = process.env.REACT_APP_EMAILJS_TEMPLATEID;
     
       this.sendContact(
           template,
@@ -94,7 +94,7 @@ export default class Contact extends React.Component {
 
     sendContact (templateId, senderEmail, receiverEmail, message, email, name) {
         window.emailjs
-        .send('mailgun', templateId, {
+        .send('default_service', templateId, {
                 senderEmail,
                 receiverEmail,
                 message,
