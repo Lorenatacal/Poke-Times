@@ -1,16 +1,61 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Contact should render correctly 1`] = `
-<div
-  className="container"
->
-  <h4
-    className="center"
-  >
-    Contact
-  </h4>
-  <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, expedita quaerat in ea delectus deserunt excepturi hic id quisquam quod facilis porro necessitatibus culpa, earum sunt enim, recusandae nulla doloremque?
-  </p>
-</div>
+<styled.div>
+  <div>
+    <styled.form
+      onSubmit={[Function]}
+    >
+      <styled.h4>
+        Contact Us
+      </styled.h4>
+      <label>
+        <styled.input
+          name="name-entry"
+          onChange={[Function]}
+          placeholder="Type your name here"
+          required={true}
+          type="Text"
+          value=""
+        />
+      </label>
+      <label>
+        <styled.input
+          id="email-entry"
+          name="email-entry"
+          onChange={[Function]}
+          placeholder="Type your email here"
+          required={true}
+          type="Text"
+          value=""
+        />
+      </label>
+      <label>
+        <styled.textarea
+          id="contact-entry"
+          name="contact-entry"
+          onChange={[Function]}
+          placeholder="Please enter your message here"
+          required={true}
+          type="Text"
+          value=""
+        />
+      </label>
+      <div
+        className="btn-group center"
+      >
+        <button
+          className="btn btn--cancel grey"
+        >
+          Cancel
+        </button>
+        <input
+          className="btn btn--submit grey"
+          type="submit"
+          value="Submit"
+        />
+      </div>
+    </styled.form>
+  </div>
+</styled.div>
 `;
