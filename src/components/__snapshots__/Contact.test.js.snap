@@ -4,6 +4,7 @@ exports[`Contact should render correctly 1`] = `
 <styled.div>
   <div>
     <styled.form
+      data-name="submit-form"
       onSubmit={[Function]}
     >
       <styled.h4>
@@ -11,6 +12,7 @@ exports[`Contact should render correctly 1`] = `
       </styled.h4>
       <label>
         <styled.input
+          data-name="userName"
           name="name-entry"
           onChange={[Function]}
           placeholder="Type your name here"
@@ -21,6 +23,7 @@ exports[`Contact should render correctly 1`] = `
       </label>
       <label>
         <styled.input
+          data-name="userEmail"
           id="email-entry"
           name="email-entry"
           onChange={[Function]}
@@ -32,6 +35,7 @@ exports[`Contact should render correctly 1`] = `
       </label>
       <label>
         <styled.textarea
+          data-name="userMessage"
           id="contact-entry"
           name="contact-entry"
           onChange={[Function]}
@@ -51,6 +55,7 @@ exports[`Contact should render correctly 1`] = `
         </button>
         <input
           className="btn btn--submit grey"
+          data-name="submitContact"
           type="submit"
           value="Submit"
         />

@@ -34,18 +34,21 @@ const StyledInput = styled.input`
 `
 
 export default class Contact extends React.Component {
-        state = {
+    constructor(props){
+        super(props)
+        this.state = {
             message: '',
             email: '',
             name: '',
             formSubmitted: false
         };
 
-    handleCancel = this.handleCancel.bind(this);
-    handleChange = this.handleChange.bind(this);
-    handleSubmit = this.handleSubmit.bind(this);
-    handleChangeEmail = this.handleChangeEmail.bind(this);
-    handleChangeName = this.handleChangeName.bind(this);
+        this.handleCancel = this.handleCancel.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleChangeEmail = this.handleChangeEmail.bind(this);
+        this.handleChangeName = this.handleChangeName.bind(this);
+    }
     
         handleCancel() {
             this.setState({
@@ -72,8 +75,9 @@ export default class Contact extends React.Component {
         }
 
     handleSubmit(event) {
+        console.log(event, 'event')
+        console.log('hello')
         event.preventDefault();
-
         const receiverEmail = process.env.REACT_APP_EMAILJS_USERID;
         const template = process.env.REACT_APP_EMAILJS_TEMPLATEID;
     
@@ -109,27 +113,26 @@ export default class Contact extends React.Component {
             .catch(err => console.error('Failed to send feedback. Error: ', err))
     }
 
-
     render() {
         return (
             <StyledContainer>   
                 <div>
-                    <StyledForm onSubmit={this.handleSubmit}>
+                    <StyledForm onSubmit={this.handleSubmit} data-name="submit-form">
                         <StyledTitle>Contact Us</StyledTitle>
                         <label>
-                            <StyledInput type="Text" name="name-entry" onChange={this.handleChangeName}  placeholder="Type your name here" required value ={this.state.name}/>
+                            <StyledInput data-name="userName" type="Text" name="name-entry" onChange={this.handleChangeName}  placeholder="Type your name here" required value ={this.state.name}/>
                         </label>
                         <label>
-                            <StyledInput id="email-entry" type="Text" name="email-entry" onChange={this.handleChangeEmail} placeholder="Type your email here" required value ={this.state.email}/>
+                            <StyledInput data-name="userEmail" id="email-entry" type="Text" name="email-entry" onChange={this.handleChangeEmail} placeholder="Type your email here" required value ={this.state.email}/>
                         </label>
                         <label>
-                            <StyledTextarea id="contact-entry" type="Text" name="contact-entry" onChange={this.handleChange} placeholder="Please enter your message here" required value ={this.state.message}/>
+                            <StyledTextarea data-name="userMessage" id="contact-entry" type="Text" name="contact-entry" onChange={this.handleChange} placeholder="Please enter your message here" required value ={this.state.message}/>
                         </label>
                         <div className="btn-group center">
                             <button className="btn btn--cancel grey" >
                                 Cancel
                             </button>
-                            <input type="submit" value="Submit" className="btn btn--submit grey" />
+                            <input data-name="submitContact" type="submit" value="Submit" className="btn btn--submit grey" />
                             </div>
                     </StyledForm>
                 </div>
