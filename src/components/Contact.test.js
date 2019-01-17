@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import Contact from './Contact';
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import toJson from 'enzyme-to-json';
+import MockAdapter from 'axios-mock-adapter';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -16,7 +18,14 @@ test("Contact us should render correctly on Submit", () => {
          history: {
              push: jest.fn(),
          }
-    }
+    };
+    const mockedResponse = {
+        senderEmail:'Email@yahoo.com',
+        receiverEmail: 'Email@gmail.com',
+        message: 'New Message',
+        email: 'email@yahoo.com',
+        name: 'Lorena'
+    };
     const event = {
         preventDefault: jest.fn(),
     }
