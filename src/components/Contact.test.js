@@ -20,18 +20,25 @@ test("Contact us should render correctly on Submit", () => {
          }
     };
     const mockedResponse = {
+        default_service: 'Email@gmail.com',
+        templateId: '123FR435',
         senderEmail:'Email@yahoo.com',
         receiverEmail: 'Email@gmail.com',
         message: 'New Message',
         email: 'email@yahoo.com',
         name: 'Lorena'
     };
+    const mock = new MockAdapter(axios);
+    mock
+    .send(mockedResponse);
+     
     const event = {
         preventDefault: jest.fn(),
     }
     const wrapper = Enzyme.shallow(<Contact {...props} />);
     const instance = wrapper.instance();
     const handleSubmitSpy = jest.spyOn(instance, 'handleSubmit');
+    
 
     const userName=wrapper.find('[data-name="userName"]');
     userName.simulate('change', { target: { value: 'Lorena' } });
