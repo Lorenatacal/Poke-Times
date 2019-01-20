@@ -56,6 +56,7 @@ test("Contact us should render correctly on Submit", () => {
 
     // test that handleChange is working 
     expect(instance.state.name).toEqual('Lorena');
+    expect(instance.state.email).toEqual('email@yahoo.com');
     // sebnd contact is called with the right arguments
     // the function send is called with the right args
     // formEmailSent state
