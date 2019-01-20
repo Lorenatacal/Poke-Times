@@ -26,22 +26,14 @@ test("Contact us should render correctly on Submit", () => {
          new Promise((resolve, reject) => resolve(1)));
     global.emailjs.send.then = jest.fn();
 
-    const mockedResponse = {
-        default_service: 'Email@gmail.com',
-        templateId: '123FR435',
-        senderEmail:'Email@yahoo.com',
-        receiverEmail: 'Email@gmail.com',
-        message: 'New Message',
-        email: 'email@yahoo.com',
-        name: 'Lorena'
-    };
     const event = {
         preventDefault: jest.fn(),
     }
     const wrapper = Enzyme.shallow(<Contact {...props} />);
     const instance = wrapper.instance();
     const handleSubmitSpy = jest.spyOn(instance, 'handleSubmit');
-    
+    const sendContactSpy = jest.spyOn(instance, 'sendContact');
+
 
     const userName=wrapper.find('[data-name="userName"]');
     userName.simulate('change', { target: { value: 'Lorena' } });
@@ -54,11 +46,17 @@ test("Contact us should render correctly on Submit", () => {
     const form = wrapper.find('[data-name="submit-form"]');
     form.simulate('submit', { preventDefault() {} });
 
-    // test that handleChange is working 
     expect(instance.state.name).toEqual('Lorena');
     expect(instance.state.email).toEqual('email@yahoo.com');
     expect(instance.state.message).toEqual('New Message');
-    // sebnd contact is called with the right arguments
+    expect(sendContactSpy).toHaveBeenCalledWith(
+        process.env.REACT_APP_EMAILJS_TEMPLATEID,
+        process.env.REACT_APP_EMAILJS_USERID,  
+        'New Message', 
+        'email@yahoo.com', 
+        'Lorena'
+    )
+    // sendContact is called with the right arguments
     // the function send is called with the right args
     // formEmailSent state
 }  )

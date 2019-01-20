@@ -88,7 +88,6 @@ export default class Contact extends React.Component {
     
       this.sendContact(
           template,
-          this.sender,
           receiverEmail,
           this.state.message,
           this.state.email,
@@ -101,10 +100,9 @@ export default class Contact extends React.Component {
       this.props.history.push('/');
     }
 
-    sendContact (templateId, senderEmail, receiverEmail, message, email, name) {
+    sendContact (templateId, receiverEmail, message, email, name) {
         window.emailjs
         .send('default_service', templateId, {
-                senderEmail,
                 receiverEmail,
                 message,
                 email,
@@ -126,7 +124,7 @@ export default class Contact extends React.Component {
                         <StyledTitle>Contact Us</StyledTitle>
                         <label>
                             {/*  //figure out how to pass the name to the event handler  */}
-                            <StyledInput data-name="userName" type="Text" name="name-entry" onChange={(event) => this.handleChangeName(event, name)}  placeholder="Type your name here" required value = {this.state.name}/>
+                            <StyledInput data-name="userName" type="Text" name="name-entry" onChange={(event) => this.handleChangeName(event)}  placeholder="Type your name here" required value = {this.state.name}/>
                         </label>
                         <label>
                             <StyledInput data-name="userEmail" id="email-entry" type="Text" name="email-entry" onChange={this.handleChangeEmail} placeholder="Type your email here" required value ={this.state.email}/>
