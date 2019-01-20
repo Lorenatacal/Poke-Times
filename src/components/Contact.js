@@ -68,15 +68,20 @@ export default class Contact extends React.Component {
             });
         }
 
-        handleChangeName(e) {
+        handleChangeName(e, name) {
             this.setState({
                 name: e.target.value,
             });
         }
 
+        // handleChange(e, name) {
+        //     this.setState({
+        //         [name]: e.target.value,
+        //     });
+        // }
+
+
     handleSubmit(event) {
-        console.log(event, 'event')
-        console.log('hello')
         event.preventDefault();
         const receiverEmail = process.env.REACT_APP_EMAILJS_USERID;
         const template = process.env.REACT_APP_EMAILJS_TEMPLATEID;
@@ -120,7 +125,8 @@ export default class Contact extends React.Component {
                     <StyledForm onSubmit={this.handleSubmit} data-name="submit-form">
                         <StyledTitle>Contact Us</StyledTitle>
                         <label>
-                            <StyledInput data-name="userName" type="Text" name="name-entry" onChange={this.handleChangeName}  placeholder="Type your name here" required value ={this.state.name}/>
+                            {/*  //figure out how to pass the name to the event handler  */}
+                            <StyledInput data-name="userName" type="Text" name="name-entry" onChange={(event) => this.handleChangeName(event, name)}  placeholder="Type your name here" required value = {this.state.name}/>
                         </label>
                         <label>
                             <StyledInput data-name="userEmail" id="email-entry" type="Text" name="email-entry" onChange={this.handleChangeEmail} placeholder="Type your email here" required value ={this.state.email}/>
