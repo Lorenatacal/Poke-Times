@@ -34,15 +34,12 @@ test("Contact us should render correctly on Submit", () => {
     const handleSubmitSpy = jest.spyOn(instance, 'handleSubmit');
     const sendContactSpy = jest.spyOn(instance, 'sendContact');
 
-
     const userName=wrapper.find('[data-name="userName"]');
     userName.simulate('change', { target: { value: 'Lorena' } });
     const userEmail=wrapper.find('[data-name="userEmail"]');
     userEmail.simulate('change', { target: { value: 'email@yahoo.com' } });
     const userMessage=wrapper.find('[data-name="userMessage"]');
     userMessage.simulate('change', { target: { value: 'New Message' } });
-    const submitButton = wrapper.find('[data-name="submitContact"]');
-    submitButton.simulate('click', { preventDefault() {} });
     const form = wrapper.find('[data-name="submit-form"]');
     form.simulate('submit', { preventDefault() {} });
 
@@ -57,5 +54,6 @@ test("Contact us should render correctly on Submit", () => {
         'Lorena'
     )
     expect(handleSubmitSpy).toBeCalled();
+    expect(wrapper.state('formSubmitted')).toEqual(true);
     // formEmailSent state
 }  )

@@ -43,19 +43,12 @@ export default class Contact extends React.Component {
             formSubmitted: false
         };
 
-        this.handleCancel = this.handleCancel.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChangeEmail = this.handleChangeEmail.bind(this);
         this.handleChangeName = this.handleChangeName.bind(this);
     }
     
-        handleCancel() {
-            this.setState({
-                message: ''
-            });
-        }
-
         handleChange(e) {
             this.setState({
                 message: e.target.value,
