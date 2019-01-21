@@ -56,7 +56,6 @@ test("Contact us should render correctly on Submit", () => {
         'email@yahoo.com', 
         'Lorena'
     )
-    // sendContact is called with the right arguments
-    // the function send is called with the right args
+    expect(handleSubmitSpy).toBeCalled();
     // formEmailSent state
 }  )
